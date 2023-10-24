@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CalChart Studio"
+run/main_scene="res://calchart_studio.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://ui/textures/highstepper.png"
@@ -23,3 +24,7 @@ window/size/viewport_height=1080
 [dotnet]
 
 project/assembly_name="CalChart Studio"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bmmwx3j6oqrrg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1myg"]
+content_margin_left = 10.0
+corner_radius_top_left = 12
+corner_radius_top_right = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg8i8"]
+bg_color = Color(0.211765, 0.219608, 0.239216, 1)
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[resource]
+Header/styles/panel = SubResource("StyleBoxFlat_d1myg")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_rg8i8")

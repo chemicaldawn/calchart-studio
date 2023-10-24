@@ -1,4 +1,38 @@
-[gd_scene format=3 uid="uid://jjekfegqd57l"]
+[gd_scene load_steps=8 format=3 uid="uid://jjekfegqd57l"]
+
+[ext_resource type="Theme" uid="uid://bmmwx3j6oqrrg" path="res://ui/main.tres" id="1_oncgu"]
+[ext_resource type="Script" path="res://ui/adaptive_ui.gd" id="2_5ik8u"]
+[ext_resource type="PackedScene" uid="uid://kyy3cxinv3uh" path="res://viewport/viewport2D.tscn" id="2_176a5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw8f7"]
+bg_color = Color(0.341176, 0.341176, 0.372549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_410pp"]
+bg_color = Color(0.211765, 0.219608, 0.239216, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.0901961)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77015"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.129412, 0.137255, 0.152941, 1)
+
+[sub_resource type="Theme" id="Theme_wak8o"]
+HBoxContainer/constants/separation = 10
+HSplitContainer/constants/separation = 10
+HSplitContainer/icons/grabber = null
+Panel/styles/panel = SubResource("StyleBoxFlat_nw8f7")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_410pp")
+VBoxContainer/constants/separation = 0
+VSplitContainer/constants/separation = 10
+WindowContainer/styles/panel = SubResource("StyleBoxFlat_77015")
 
 [node name="CalChart Studio" type="Node"]
 
@@ -9,3 +43,123 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_oncgu")
+script = ExtResource("2_5ik8u")
+
+[node name="Windows" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wak8o")
+theme_type_variation = &"WindowContainer"
+
+[node name="Columns" type="HSplitContainer" parent="UI/Windows"]
+layout_mode = 2
+theme = SubResource("Theme_wak8o")
+
+[node name="Point Column" type="VSplitContainer" parent="UI/Windows/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme = SubResource("Theme_wak8o")
+
+[node name="Points Panel" type="VBoxContainer" parent="UI/Windows/Columns/Point Column"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme = SubResource("Theme_wak8o")
+
+[node name="Header" type="Panel" parent="UI/Windows/Columns/Point Column/Points Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_oncgu")
+
+[node name="Points" type="PanelContainer" parent="UI/Windows/Columns/Point Column/Points Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_oncgu")
+
+[node name="Panel" type="VBoxContainer" parent="UI/Windows/Columns/Point Column"]
+layout_mode = 2
+theme = SubResource("Theme_wak8o")
+
+[node name="Right Columns" type="HSplitContainer" parent="UI/Windows/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Field Column" type="VSplitContainer" parent="UI/Windows/Columns/Right Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_wak8o")
+
+[node name="Viewport Panel" type="VBoxContainer" parent="UI/Windows/Columns/Right Columns/Field Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_wak8o")
+
+[node name="Header" type="Panel" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_oncgu")
+
+[node name="Viewport Container" type="SubViewportContainer" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_oncgu")
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel/Viewport Container"]
+handle_input_locally = false
+size = Vector2i(1310, 750)
+render_target_update_mode = 4
+
+[node name="Viewport2D" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel/Viewport Container/Viewport" instance=ExtResource("2_176a5")]
+
+[node name="Timeline Panel" type="VBoxContainer" parent="UI/Windows/Columns/Right Columns/Field Column"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Header" type="PanelContainer" parent="UI/Windows/Columns/Right Columns/Field Column/Timeline Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_oncgu")
+theme_type_variation = &"Header"
+
+[node name="Label" type="Label" parent="UI/Windows/Columns/Right Columns/Field Column/Timeline Panel/Header"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_oncgu")
+text = "Timeline"
+vertical_alignment = 1
+
+[node name="Timeline" type="PanelContainer" parent="UI/Windows/Columns/Right Columns/Field Column/Timeline Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Inspector Column" type="VSplitContainer" parent="UI/Windows/Columns/Right Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme = SubResource("Theme_wak8o")
+
+[node name="Inspector Panel" type="VBoxContainer" parent="UI/Windows/Columns/Right Columns/Inspector Column"]
+layout_mode = 2
+theme = ExtResource("1_oncgu")
+
+[node name="Header" type="Panel" parent="UI/Windows/Columns/Right Columns/Inspector Column/Inspector Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_oncgu")
+
+[node name="Inspector" type="PanelContainer" parent="UI/Windows/Columns/Right Columns/Inspector Column/Inspector Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="item_rect_changed" from="UI" to="UI" method="_on_item_rect_changed"]
