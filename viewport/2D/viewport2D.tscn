@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://kyy3cxinv3uh"]
+
+[ext_resource type="Script" path="res://viewport/2D/scripts/movement_2D.gd" id="1_4bebm"]
+[ext_resource type="Texture2D" uid="uid://byqdxau2qfic2" path="res://viewport/2D/textures/field.png" id="2_gnow3"]
+
+[node name="Viewport2D" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("1_4bebm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_gnow3")

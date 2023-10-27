@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://jjekfegqd57l"]
+[gd_scene load_steps=8 format=3 uid="uid://jjekfegqd57l"]
 
 [ext_resource type="Theme" uid="uid://bmmwx3j6oqrrg" path="res://ui/main.tres" id="1_oncgu"]
 [ext_resource type="Script" path="res://ui/adaptive_ui.gd" id="2_5ik8u"]
 [ext_resource type="PackedScene" uid="uid://kyy3cxinv3uh" path="res://viewport/2D/viewport2D.tscn" id="2_176a5"]
-[ext_resource type="Script" path="res://ui/toolbar.gd" id="3_uw0pv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw8f7"]
 bg_color = Color(0.341176, 0.341176, 0.372549, 1)
@@ -46,6 +45,10 @@ grow_vertical = 2
 theme = ExtResource("1_oncgu")
 theme_override_constants/separation = 0
 script = ExtResource("2_5ik8u")
+universal_ui_scale = null
+default_toolbar_size = null
+default_header_size = null
+default_font_size = null
 
 [node name="Toolbar" type="PanelContainer" parent="UI" groups=["Toolbar"]]
 unique_name_in_owner = true
@@ -53,24 +56,13 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 0
 theme_type_variation = &"Toolbar"
-script = ExtResource("3_uw0pv")
 
 [node name="Tools" type="HBoxContainer" parent="UI/Toolbar"]
 layout_mode = 2
-theme_override_constants/separation = 10
 
 [node name="File" type="MenuButton" parent="UI/Toolbar/Tools"]
 layout_mode = 2
-theme = ExtResource("1_oncgu")
 text = "File"
-switch_on_hover = true
-item_count = 1
-popup/item_0/text = "New"
-popup/item_0/id = 0
-
-[node name="View" type="MenuButton" parent="UI/Toolbar/Tools"]
-layout_mode = 2
-text = "View"
 
 [node name="Windows" type="PanelContainer" parent="UI"]
 layout_mode = 2
@@ -146,13 +138,14 @@ theme = ExtResource("1_oncgu")
 text = "Field View"
 vertical_alignment = 1
 
-[node name="Content" type="PanelContainer" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel"]
-clip_contents = true
+[node name="Content" type="Control" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel"]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Viewport Container" type="SubViewportContainer" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel/Content"]
 layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_vertical = 3
 theme = ExtResource("1_oncgu")
 stretch = true
@@ -166,11 +159,18 @@ render_target_update_mode = 4
 
 [node name="HScrollBar" type="HScrollBar" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel/Content"]
 layout_mode = 2
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
 size_flags_vertical = 8
 
 [node name="VScrollBar" type="VScrollBar" parent="UI/Windows/Columns/Right Columns/Field Column/Viewport Panel/Content"]
 layout_mode = 2
-size_flags_horizontal = 8
+offset_left = -18.0
+offset_top = -30.0
+offset_right = -10.0
+offset_bottom = 1030.0
 
 [node name="Timeline Panel" type="VBoxContainer" parent="UI/Windows/Columns/Right Columns/Field Column"]
 layout_mode = 2
