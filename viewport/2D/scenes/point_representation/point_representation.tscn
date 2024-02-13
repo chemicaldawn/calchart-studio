@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://clpp5utmiq5hf"]
+
+[node name="Point Representation" type="StaticBody2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 3.0
+offset_bottom = 3.0

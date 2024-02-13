@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcg8dcpb5vu18"]
+
+[ext_resource type="Theme" uid="uid://bmmwx3j6oqrrg" path="res://ui/main.tres" id="1_y4oll"]
+
+[node name="Inspector" type="VBoxContainer"]
+theme = ExtResource("1_y4oll")
+
+[node name="Header" type="PanelContainer" parent="." groups=["Header"]]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_y4oll")
+theme_type_variation = &"Header"
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_y4oll")
+text = "Inspector
+"
+vertical_alignment = 1
+
+[node name="Inspector" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3

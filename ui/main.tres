@@ -1,9 +1,28 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bmmwx3j6oqrrg"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bmmwx3j6oqrrg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvhlk"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.129412, 0.133333, 0.14902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kfdg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijxvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwk4c"]
 content_margin_left = 10.0
 corner_radius_top_left = 16
 corner_radius_top_right = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a5o0"]
+bg_color = Color(0.282353, 0.290196, 0.301961, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypvqx"]
 bg_color = Color(0.282353, 0.290196, 0.301961, 1)
@@ -15,24 +34,36 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piq71"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3g3u"]
-bg_color = Color(0.0705882, 0.0745098, 0.0784314, 1)
-expand_margin_left = 10.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhije"]
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xf54"]
-bg_color = Color(0.0705882, 0.0745098, 0.0784314, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xm2tn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrx62"]
+bg_color = Color(0.129412, 0.133333, 0.14902, 1)
+shadow_color = Color(0, 0, 0, 0.156863)
+shadow_offset = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7exa"]
 content_margin_left = 10.0
 bg_color = Color(0.0705882, 0.0745098, 0.0784314, 1)
+shadow_color = Color(0, 0, 0, 0.305882)
+shadow_size = 2
 
 [resource]
+Body/styles/panel = SubResource("StyleBoxFlat_dvhlk")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_2kfdg")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ijxvr")
 Header/styles/panel = SubResource("StyleBoxFlat_jwk4c")
+Panel/styles/panel = SubResource("StyleBoxFlat_1a5o0")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ypvqx")
 PopupMenu/constants/item_end_padding = 20
 PopupMenu/constants/item_start_padding = 4
 PopupMenu/font_sizes/font_size = 16
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_piq71")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_c3g3u")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_8xf54")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_mhije")
+Spacer/styles/panel = SubResource("StyleBoxEmpty_xm2tn")
+Timeline/styles/panel = SubResource("StyleBoxFlat_hrx62")
 Toolbar/styles/panel = SubResource("StyleBoxFlat_r7exa")
+VBoxContainer/constants/separation = 0

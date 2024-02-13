@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xfju12gwqqjj"]
+
+[ext_resource type="Theme" uid="uid://bmmwx3j6oqrrg" path="res://ui/main.tres" id="1_bxajt"]
+
+[node name="Continuities" type="VBoxContainer"]
+theme = ExtResource("1_bxajt")

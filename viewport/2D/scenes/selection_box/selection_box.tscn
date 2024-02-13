@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://p68nxy634rj6"]
+
+[ext_resource type="Script" path="res://viewport/2D/scenes/selection_box/selection_box.gd" id="1_fprmk"]
+[ext_resource type="StyleBox" uid="uid://cnrhy6br4g4a5" path="res://viewport/2D/scenes/selection_box/selection_box.tres" id="2_ucux5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eivxu"]
+size = Vector2(0, 0)
+
+[node name="Selection Box" type="Area2D"]
+script = ExtResource("1_fprmk")
+
+[node name="Visual Selector" type="Panel" parent="."]
+theme_override_styles/panel = ExtResource("2_ucux5")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eivxu")

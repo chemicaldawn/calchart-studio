@@ -22,6 +22,12 @@ func _ready():
 	headers = get_tree().get_nodes_in_group("Header")
 	
 	adapt(base_ui_scale)
+	
+	%Toolbar.connect("show_windows",show_windows)
+	
+func show_windows():
+	%Detail.visible = false
+	%Windows.visible = true
 
 func adapt(scale : float):
 	

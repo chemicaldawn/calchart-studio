@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://b86w0om4c0ctd"]
+
+[ext_resource type="Theme" uid="uid://bmmwx3j6oqrrg" path="res://ui/main.tres" id="1_i75jq"]
+[ext_resource type="Script" path="res://ui/windows/timeline/timeline.gd" id="2_alnid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jr2jo"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hym47"]
+
+[node name="Timeline" type="VBoxContainer"]
+offset_right = 821.0
+offset_bottom = 272.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme = ExtResource("1_i75jq")
+script = ExtResource("2_alnid")
+
+[node name="Header" type="PanelContainer" parent="." groups=["Header"]]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_i75jq")
+theme_type_variation = &"Header"
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_i75jq")
+text = "Timeline"
+vertical_alignment = 1
+
+[node name="Timeline" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="PanelContainer" parent="Timeline"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jr2jo")
+
+[node name="Separator" type="VBoxContainer" parent="Timeline/Margin"]
+layout_mode = 2
+
+[node name="Spacer" type="Panel" parent="Timeline/Margin/Separator"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"Spacer"
+
+[node name="Timeline Background" type="Panel" parent="Timeline/Margin/Separator"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"Timeline"
+
+[node name="Timeline Base" type="Control" parent="Timeline/Margin/Separator/Timeline Background"]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Scrollbar" type="HScrollBar" parent="Timeline/Margin/Separator/Timeline Background"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+page = 4.0
+
+[node name="Lower Spacer" type="Panel" parent="Timeline/Margin/Separator"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_type_variation = &"Spacer"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hym47")
+
+[connection signal="resized" from="Timeline/Margin/Separator/Timeline Background/Timeline Base" to="." method="_on_timeline_base_resized"]
+[connection signal="value_changed" from="Timeline/Margin/Separator/Timeline Background/Scrollbar" to="." method="_on_scrollbar_value_changed"]

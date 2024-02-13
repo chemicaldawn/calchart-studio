@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byqdxau2qfic2"
-path="res://.godot/imported/field.png-4f8854706720762841d8a0b3a61bfd3a.ctex"
+uid="uid://yutb33ghn6jg"
+path="res://.godot/imported/logo.png-4a10cb1514ca18521b97ad09897b7f74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://viewport/2D/textures/field.png"
-dest_files=["res://.godot/imported/field.png-4f8854706720762841d8a0b3a61bfd3a.ctex"]
+source_file="res://ui/textures/logo.png"
+dest_files=["res://.godot/imported/logo.png-4a10cb1514ca18521b97ad09897b7f74.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

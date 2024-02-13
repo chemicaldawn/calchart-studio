@@ -70,27 +70,21 @@ layout_mode = 2
 theme = ExtResource("1_oncgu")
 text = "File"
 switch_on_hover = true
-item_count = 2
+item_count = 1
 popup/item_0/text = "New"
 popup/item_0/id = 0
-popup/item_1/text = "Test"
-popup/item_1/id = 1
 
 [node name="View" type="MenuButton" parent="UI/Toolbar/Tools"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "View"
 switch_on_hover = true
-item_count = 1
-popup/item_0/text = "Test"
-popup/item_0/id = 0
 
 [node name="Body" type="PanelContainer" parent="UI"]
-z_index = -1
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_oncgu")
-theme_type_variation = &"Body"
+theme = SubResource("Theme_wak8o")
+theme_type_variation = &"WindowContainer"
 
 [node name="Detail" type="Control" parent="UI/Body"]
 unique_name_in_owner = true
@@ -118,6 +112,7 @@ text = "Written by Dawn Schumacher"
 
 [node name="Windows" type="HSplitContainer" parent="UI/Body"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_wak8o")
 
@@ -162,3 +157,7 @@ theme = SubResource("Theme_wak8o")
 [node name="Inspector" parent="UI/Body/Windows/Right Columns/Inspector Column" instance=ExtResource("7_1ba2j")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="item_rect_changed" from="UI" to="UI" method="_on_item_rect_changed"]
+[connection signal="about_to_popup" from="UI/Toolbar/Tools/File" to="UI/Toolbar" method="_on_file_about_to_popup"]
+[connection signal="pressed" from="UI/Toolbar/Tools/File" to="UI/Toolbar" method="_on_file_pressed"]

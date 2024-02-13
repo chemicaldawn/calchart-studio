@@ -13,5 +13,3 @@ unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("1_t8fx8")
-
-[node name="Points" type="Node2D" parent="."]
